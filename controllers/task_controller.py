@@ -3,7 +3,11 @@ from services.task_service import TaskService
 
 task_blueprint = Blueprint('tasks', __name__)
 
-@task_blueprint.route('/tasks', methods=['POST'])
+@task_blueprint.route('/create_task', methods=['GET'])
+def create_task_form():
+    return render_template('create_task.html')
+
+@task_blueprint.route('/create_task', methods=['POST'])
 def create_task():
 
     data = request.form
@@ -15,6 +19,11 @@ def create_task():
 
     TaskService.create_task(name, description)
     return redirect(url_for('tasks.index'))
+
+# Vista para el formulario de actualizar tarea
+@task_blueprint.route('/update_task', methods=['GET'])
+def update_task_form():
+    return render_template('update_task.html')
 
 @task_blueprint.route('/update_task', methods=['POST'])
 def update_task():
