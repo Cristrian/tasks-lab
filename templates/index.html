@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Management</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Gestor de tareas.</h1>
+
+    <h1>Crear Tarea</h1>
+    <form method="POST" action="/tasks">
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="description">Descripción:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <button type="submit">Crear</button>
+    </form>
+
+    <h1>Actualizar Tarea</h1>
+    <form method="POST" action="/update_task">
+        <label for="task_id">ID de Tarea:</label><br>
+        <input type="text" id="task_id" name="task_id" required><br>
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="description">Descripción:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+</html>
